@@ -12,10 +12,7 @@ public class DepositCalculatorService {
         double deposit = 0;
 
         double percent = percentDeposit * 100;
-        int millsOfSecond = 1000;
-        int secondsOdMinute = 60;
-        int minuteOfHours = 60;
-        int hoursOfDay = 24;
+        int millsOfDay = 1000 * 60 * 60 * 24;
 
         String[] partsDateStart = dateStart.split("\\.");
         int dayDateStart = Integer.parseInt(partsDateStart[0]);
@@ -65,11 +62,11 @@ public class DepositCalculatorService {
                     dateYear.set(DAY_OF_MONTH, dateFirst.get(DAY_OF_MONTH));
 
             }
-            if (new GregorianCalendar().isLeapYear(i) == true) {
-                int days = (int) ((lastDayYear.getTimeInMillis() - dateYear.getTimeInMillis()) / (millsOfSecond * secondsOdMinute * minuteOfHours * hoursOfDay));
+            if (new GregorianCalendar().isLeapYear(i)) {
+                int days = (int) ((lastDayYear.getTimeInMillis() - dateYear.getTimeInMillis()) / millsOfDay);
                 deposit += sumDeposit * percent * days / (366 * 10000);
             } else {
-                long days = ((lastDayYear.getTimeInMillis() - dateYear.getTimeInMillis()) / (millsOfSecond * secondsOdMinute * minuteOfHours * hoursOfDay));
+                long days = ((lastDayYear.getTimeInMillis() - dateYear.getTimeInMillis()) / millsOfDay);
                 deposit += sumDeposit * percent * days / (365 * 10000);
             }
         }
