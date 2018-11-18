@@ -13,11 +13,11 @@
 ### IntelliJ IDEA ###
 .idea
 *.iws
-*.inl
-*.ipl
+*.iml
+*.ipr
 
 ### NetBeans ###
-/nbproject/private
+/nbproject/private/
 /build/
 /nbbuild/
 /dist/
