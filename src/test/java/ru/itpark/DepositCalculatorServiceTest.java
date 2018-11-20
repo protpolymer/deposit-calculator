@@ -1,10 +1,12 @@
 package ru.itpark;
 
+import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class DepositCalculatorServiceTest {
 
-    @org.junit.jupiter.api.Test
+    @Test
     void depositCalculate() {
         {
             double sumDeposit = 100_000;
