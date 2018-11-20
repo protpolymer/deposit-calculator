@@ -28,8 +28,7 @@ public class DepositCalculatorService {
         String dateFinish = new SimpleDateFormat("dd.MM.yyyy").format(dateSecond.getTime());
 
         String[] partsDateFinish = dateFinish.split("\\.");
-        int dayDateFinish = Integer.parseInt(partsDateFinish[0]);
-        int monthDateFinish = Integer.parseInt(partsDateFinish[1]);
+
         int yearDateFinish = Integer.parseInt(partsDateFinish[2]);
 
         for (int i = yearDateStart; i <= yearDateFinish; i ++) {
