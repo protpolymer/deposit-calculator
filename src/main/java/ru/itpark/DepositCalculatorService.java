@@ -7,9 +7,9 @@ import static java.util.Calendar.*;
 
 public class DepositCalculatorService {
 
-    public int depositCalculate(double sumDeposit, String dateStart, int period, double percentDeposit) {
+    public int depositCalculate(int sumDeposit, String dateStart, int period, double percentDeposit) {
         int result = 0;
-        double deposit = 0;
+        int deposit = 0;
 
         double percent = percentDeposit * 100;
         int millsOfDay = 1000 * 60 * 60 * 24;
@@ -69,6 +69,6 @@ public class DepositCalculatorService {
                 deposit += sumDeposit * percent * days / (365 * 10000);
             }
         }
-        return (int)(result + deposit);
+        return result + deposit;
     }
 }

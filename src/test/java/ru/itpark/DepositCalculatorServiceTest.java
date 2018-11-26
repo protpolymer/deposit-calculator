@@ -9,35 +9,22 @@ class DepositCalculatorServiceTest {
     @Test
     void depositCalculate() {
         {
-            double sumDeposit = 100_000;
-            int period = 12;
-            double percentDeposit = 10;
-            String dateStart = "21.10.2018";
 
             DepositCalculatorService depositCalculator = new DepositCalculatorService();
-            int deposit = depositCalculator.depositCalculate(sumDeposit, dateStart, period, percentDeposit);
+            int deposit = depositCalculator.depositCalculate(100_000, "21.10.2018", 12, 10);
 
             assertEquals(110_000, deposit);
         }
         {
-            double sumDeposit = 150_000;
-            int period = 14;
-            double percentDeposit = 8;
-            String dateStart = "21.10.2018";
 
             DepositCalculatorService depositCalculator = new DepositCalculatorService();
-            int deposit = depositCalculator.depositCalculate(sumDeposit, dateStart, period, percentDeposit);
+            int deposit = depositCalculator.depositCalculate(150_000, "21.10.2018", 14, 8);
 
             assertEquals(164_005, deposit);
         }
         {
-            double sumDeposit = 700_000;
-            int period = 24;
-            double percentDeposit = 9.2;
-            String dateStart = "21.10.2018";
-
             DepositCalculatorService depositCalculator = new DepositCalculatorService();
-            int deposit = depositCalculator.depositCalculate(sumDeposit, dateStart, period, percentDeposit);
+            int deposit = depositCalculator.depositCalculate(700_000, "21.10.2018", 24, 9.2);
 
             assertEquals(828_835, deposit);
         }
