@@ -8,10 +8,10 @@ import static java.util.Calendar.*;
 public class DepositCalculatorService {
 
     public int depositCalculate(int sumDeposit, String dateStart, int period, double percentDeposit) {
-        int result = 0;
-        int deposit = 0;
 
-        double percent = percentDeposit * 100;
+        double deposit = 0;
+
+        double percent = Math.round(percentDeposit * 100);
         int millsOfDay = 1000 * 60 * 60 * 24;
 
         String[] partsDateStart = dateStart.split("\\.");
@@ -63,12 +63,12 @@ public class DepositCalculatorService {
             }
             if (new GregorianCalendar().isLeapYear(i)) {
                 int days = (int) ((lastDayYear.getTimeInMillis() - dateYear.getTimeInMillis()) / millsOfDay);
-                deposit += sumDeposit * percent * days / (366 * 10000);
+                deposit += (sumDeposit * percent * days / (366 * 10000));
             } else {
                 long days = ((lastDayYear.getTimeInMillis() - dateYear.getTimeInMillis()) / millsOfDay);
-                deposit += sumDeposit * percent * days / (365 * 10000);
+                deposit += (sumDeposit * percent * days / (365 * 10000));
             }
         }
-        return result + deposit;
+        return sumDeposit + (int)Math.round(deposit);
     }
 }
