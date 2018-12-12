@@ -62,11 +62,11 @@ public class DepositCalculatorService {
 
             }
             if (new GregorianCalendar().isLeapYear(i)) {
-                int days = (int) ((lastDayYear.getTimeInMillis() - dateYear.getTimeInMillis()) / millsOfDay);
-                deposit += (sumDeposit * percent * days / (366 * 10000));
+                long days =  (lastDayYear.getTimeInMillis() - dateYear.getTimeInMillis()) / millsOfDay;
+                deposit += sumDeposit * percent * days / (366 * 10000);
             } else {
-                long days = ((lastDayYear.getTimeInMillis() - dateYear.getTimeInMillis()) / millsOfDay);
-                deposit += (sumDeposit * percent * days / (365 * 10000));
+                long days = (lastDayYear.getTimeInMillis() - dateYear.getTimeInMillis()) / millsOfDay;
+                deposit += sumDeposit * percent * days / (365 * 10000);
             }
         }
         return sumDeposit + (int)Math.round(deposit);
