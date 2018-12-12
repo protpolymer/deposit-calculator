@@ -1,1 +1,1 @@
-# Deposit calculator
+# Deposit calculator service
